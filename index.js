@@ -7,7 +7,7 @@ const lineConfig = {
 const client = new line.Client(lineConfig);
 const app = express();
 
-app.listen(3000, function () {
+app.listen(8080, function () {
     console.log('App now running on port', this.address().port);
 });
 
