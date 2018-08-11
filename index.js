@@ -34,15 +34,15 @@ bot.on('message', function (event) {
 
         console.log(stiker);
 
-        event.reply({
-            type: 'sticker',
-            packageId: event.message.packageId,
-            stickerId: event.message.stickerId
-        }).then(function(data){
-            console.log('bot reply sticker');
-        }).catch(function(error){
-            console.log('bot reply sticker error');
-        });
+        // event.reply({
+        //     type: 'sticker',
+        //     packageId: event.message.packageId,
+        //     stickerId: event.message.stickerId
+        // }).then(function(data){
+        //     console.log('bot reply sticker');
+        // }).catch(function(error){
+        //     console.log('bot reply sticker error');
+        // });
     }
 });
 
@@ -70,10 +70,6 @@ bot.on('follow', function(event){
         console.log('bot welcome error');
     });
 });
-
-bot.on('unfollow', function (event) { });
-
-bot.on('join', function (event) { });
 
 app.post('/webhook', linebotParser);
 
