@@ -15,7 +15,10 @@ bot.on('message', function (event) {
     console.log(event);
 
     // 重複 client 輸入的內容
-    if (event.message.type = 'text') {
+    if (event.message.type == 'text') {
+
+        console.log('recieve text');
+
         var msg = event.message.text;
         event.reply(msg).then(function (data) {
             // success
@@ -25,7 +28,9 @@ bot.on('message', function (event) {
             console.log('error');
         });
     }
-    else if(event.message.type == 'sticker'){
+    else if (event.message.type == 'sticker'){
+        console.log('recieve sticker');
+
         var stiker = event.message;
 
         console.log(stiker);
