@@ -57,7 +57,7 @@ bot.on('follow', function(event){
              console.log('bot welcome message');
          })
          .catch(function(error){
-             console.error('bot welcome message error');
+             console.log('bot welcome message error');
          });
 
     event.reply({
