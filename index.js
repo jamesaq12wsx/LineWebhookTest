@@ -14,10 +14,6 @@ bot.on('message', function (event) {
     // 把收到訊息的 event 印出來
     console.log(event);
 
-    var userProfile = LineBot.getUserProfile(event.source.userId);
-
-    console.log(userProfile);
-
     // 重複 client 輸入的內容
     if (event.message.type = 'text') {
         var msg = event.message.text;
@@ -50,8 +46,6 @@ bot.on('message', function (event) {
 bot.on('follow', function(event){
     console.log(event);
 
-
-
     event.reply('歡迎追蹤我們')
          .then(function(data){
              console.log('bot welcome message');
@@ -60,15 +54,15 @@ bot.on('follow', function(event){
              console.log('bot welcome message error');
          });
 
-    event.reply({
-        type: 'sticker',
-        packageId: '1',
-        stickerId: '1'
-    }).then(function(data){
-        console.log('bot welcome');
-    }).catch(function(error){
-        console.log('bot welcome error');
-    });
+    // event.reply({
+    //     type: 'sticker',
+    //     packageId: '1',
+    //     stickerId: '1'
+    // }).then(function(data){
+    //     console.log('bot welcome');
+    // }).catch(function(error){
+    //     console.log('bot welcome error');
+    // });
 });
 
 app.post('/webhook', linebotParser);
