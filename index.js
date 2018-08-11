@@ -14,6 +14,10 @@ bot.on('message', function (event) {
     // 把收到訊息的 event 印出來
     console.log(event);
 
+    var userProfile = LineBot.getUserProfile(event.source.userId);
+
+    console.log(userProfile);
+
     // 重複 client 輸入的內容
     if (event.message.type = 'text') {
         var msg = event.message.text;
@@ -26,17 +30,54 @@ bot.on('message', function (event) {
         });
     }
     else if(event.message.type == 'sticker'){
+        var stiker = event.message;
 
+        console.log(stiker);
+
+        event.reply({
+            type: 'sticker',
+            packageId: event.message.packageId,
+            stickerId: event.message.stickerId
+        }).then(function(data){
+            console.log('bot reply sticker');
+        }).catch(function(error){
+            console.log('bot reply sticker error');
+        });
     }
 });
 
 //  follow event
 bot.on('follow', function(event){
     console.log(event);
+
+
+
+    event.reply('歡迎追蹤我們')
+         .then(function(data){
+             console.log('bot welcome message');
+         })
+         .catch(function(error){
+             console.error('bot welcome message error');
+         });
+
+    event.reply({
+        type: 'sticker',
+        packageId: '1',
+        stickerId: '1'
+    }).then(function(data){
+        console.log('bot welcome');
+    }).catch(function(error){
+        console.log('bot welcome error');
+    });
 });
 
+bot.on('unfollow', function (event) { });
+
+bot.on('join', function (event) { });
+
 app.post('/webhook', linebotParser);
-// 在 localhost 走 8080 port
+
+// 在 localhost 走 80 port
 let server = app.listen(process.env.PORT || 8080, function () {
     let port = server.address().port;
     console.log("My Line bot App running on port", port);
