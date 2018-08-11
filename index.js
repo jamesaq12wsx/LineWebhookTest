@@ -19,7 +19,7 @@ bot.on('message', function (event) {
         var msg = event.message.text;
         event.reply(msg).then(function (data) {
             // success
-            console.log('bot reply:' + msg);
+            console.log('bot reply:' + data);
         }).catch(function (error) {
             // error
             console.log('error');
