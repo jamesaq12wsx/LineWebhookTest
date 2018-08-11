@@ -19,7 +19,7 @@ bot.on('message', function (event) {
         var msg = event.message.text;
         event.reply(msg).then(function (data) {
             // success
-            console.log('bot reply:' + data);
+            console.log('bot reply:' + msg);
         }).catch(function (error) {
             // error
             console.log('error');
@@ -30,15 +30,15 @@ bot.on('message', function (event) {
 
         console.log(stiker);
 
-        // event.reply({
-        //     type: 'sticker',
-        //     packageId: event.message.packageId,
-        //     stickerId: event.message.stickerId
-        // }).then(function(data){
-        //     console.log('bot reply sticker');
-        // }).catch(function(error){
-        //     console.log('bot reply sticker error');
-        // });
+        event.reply({
+            type: 'sticker',
+            packageId: '1',
+            stickerId: '1'
+        }).then(function(data){
+            console.log('bot reply sticker');
+        }).catch(function(error){
+            console.log('bot reply sticker error');
+        });
     }
 });
 
