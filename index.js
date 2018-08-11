@@ -1,7 +1,7 @@
 let linebot = require('linebot'),
     express = require('express');
-const config = require('./config.json'),
-    util = require('util');
+// const config = require('./config.json'),
+    // util = require('util');
 let bot = linebot({
     channelId: '1599437019',
     channelSecret: 'fb2f25eda69ebc51cf2dc5a4d2c9d174',
@@ -9,7 +9,7 @@ let bot = linebot({
 });
 const linebotParser = bot.parser(),
     app = express();
-    
+
 bot.on('message', function (event) {
     // 把收到訊息的 event 印出來
     console.log(event);
