@@ -19,13 +19,22 @@ bot.on('message', function (event) {
         var msg = event.message.text;
         event.reply(msg).then(function (data) {
             // success
-            console.log(msg);
+            console.log('bot reply:' + msg);
         }).catch(function (error) {
             // error
             console.log('error');
         });
     }
+    else if(event.message.type == 'sticker'){
+
+    }
 });
+
+//  follow event
+bot.on('follow', function(event){
+    console.log(event);
+});
+
 app.post('/webhook', linebotParser);
 // 在 localhost 走 8080 port
 let server = app.listen(process.env.PORT || 8080, function () {
