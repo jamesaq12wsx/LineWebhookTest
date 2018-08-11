@@ -11,5 +11,8 @@
   "devDependencies": {
     "@line/bot-sdk": "^6.1.0",
     "express": "^4.16.3"
+  },
+  "dependencies": {
+    "linebot": "^1.4.1"
   }
 }
